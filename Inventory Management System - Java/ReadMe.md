@@ -15,3 +15,6 @@ smunir2001@gmail.com | My CS Projects | Inventory Management System - Java
 5. Reporting & Analytics: The system should allow users to generate reports and analyze inventory data, such as sales reports, inventory valuation, and inventory turnover.
 6. Integration with Other Systems: The system should be able to integrate with other systems, such as accounting software, e-commerce platforms, and shipping carriers.
 7. Security & Backup: The system should have measures in place to ensure the security of the data, such as encryption and data backups.
+## Files
+* Main.java
+* User.java
