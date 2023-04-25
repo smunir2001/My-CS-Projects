@@ -46,7 +46,7 @@ public class User {
                     " " + this.email).hashCode());
         } else {
             System.out.println("\nsetUserID() called...");
-            System.out.println("***ERROR: invalid user info. Cannot generate userID.");
+            System.out.println("*** ERROR: invalid user info. Cannot generate userID.");
         }
     }
 
