@@ -18,3 +18,4 @@ smunir2001@gmail.com | My CS Projects | Inventory Management System - Java
 ## Files
 * Main.java
 * User.java
+* DataManager.java
