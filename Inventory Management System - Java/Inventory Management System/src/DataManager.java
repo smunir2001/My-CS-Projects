@@ -17,12 +17,12 @@ public class DataManager {
     }
 
     public void createNewUser(String firstName, String lastName, String username,
-                              String email, String password) {
+                              String email, String password, int userType) {
         if (firstName != "" && lastName != "" && username != "" && email != "" &&
             password != "") {
             System.out.println("\nDataManager.createNewUser() called...");
             System.out.println("\tSUCCESS: creating new user {" + lastName + ", " + firstName + "}");
-            User newUser = new User(firstName, lastName, username, email, password);
+            User newUser = new User(firstName, lastName, username, email, password, userType);
             addUser(newUser);
         } else {
             System.out.println("\nDataManager.createNewUser() called...");
@@ -47,8 +47,12 @@ public class DataManager {
         this.users.remove(i);
     }
 
-    public void getCurrentUsers() {
-        System.out.println("\nDataManager.getCurrentUsers() called...");
+    public ArrayList<User> getCurrentUsers() {
+        return this.users;
+    }
+
+    public void printCurrentUsers() {
+        System.out.println("\nDataManager.printCurrentUsers() called...");
         if (this.users.size() != 0) {
             String currentUsersOutput = "\tno. of current users: " + this.users.size() + "\n\tcurrentUsers: [";
             for (int i = 0; i < this.users.size(); i++) {

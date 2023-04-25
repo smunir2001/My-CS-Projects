@@ -1,15 +1,35 @@
 public class User {
+    /*
+        User capabilities/functionality
+        - View all products (product specs, product price, product SKU, etc.)
+        - Update/reset password
+        - Update/reset email
+     */
     private String firstName;
     private String lastName;
     private String username;
     private String email;
     private String password;
     private int userID;
+    // 1 for user, 2 for employee, 3 for admin
+    public int userType;
+    public boolean isAdmin;
+    public boolean isEmployee;
 
     public User() {}
 
     public User(String firstName, String lastName, String username, String email,
-                String password) {
+                String password, int userType) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        setUserID();
+        this.userType = userType;
+    }
+
+    public User(String firstName, String lastName, String username, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -96,10 +116,24 @@ public class User {
         return this.password;
     }
 
+    public void setUserType(int userType) {
+        this.userType = userType;
+    }
+
+    public String getUserType() {
+        if (this.userType == 1) {
+            return "User";
+        } else if (this.userType == 2) {
+            return "Employee";
+        } else {
+            return "Administrator";
+        }
+    }
+
     @Override
     public String toString() {
-        String userOutput = "\n" + this.userID + "\n" + this.firstName + " " + this.lastName +
-                "\n" + this.username + "\n" + this.email + "\n" + this.password;
+        String userOutput = "\n" + this.getUserType() + "\n" + this.userID + "\n" + this.firstName + " " +
+                this.lastName + "\n" + this.username + "\n" + this.email + "\n" + this.password;
         return userOutput;
     }
 }
