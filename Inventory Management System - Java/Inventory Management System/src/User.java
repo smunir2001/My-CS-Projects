@@ -62,13 +62,13 @@ public class User {
     private void setUserID() {
         if (this.firstName != null && this.lastName != null
                 && this.email != null) {
-            System.out.println("\nUser.setUserID() called...");
+//            System.out.println("\nUser.setUserID() called...");
             this.userID = Math.abs((this.firstName + " " + this.lastName +
                     " " + this.email).hashCode());
-            System.out.println("\tSUCCESS: generating userID (" + this.userID + ").");
+//            System.out.println("\tSUCCESS: generating userID (" + this.userID + ").");
         } else {
-            System.out.println("\nUser.setUserID() called...");
-            System.out.println("\tERROR: invalid user info. Cannot generate userID.");
+//            System.out.println("\nUser.setUserID() called...");
+//            System.out.println("\tERROR: invalid user info. Cannot generate userID.");
         }
     }
 

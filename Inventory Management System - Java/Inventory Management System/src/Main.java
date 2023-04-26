@@ -39,9 +39,10 @@ public class Main {
     public static void runProgram() throws IOException {
         System.out.println("Welcome to\n\tthe Inventory Management System");
         System.out.println("-----------------------------------");
+        System.out.println("\tPlease login...");
 
         String[] adminCreds = getAdminCreds();
-        System.out.println("adminCreds[]: " + Arrays.toString(adminCreds));
+//        System.out.println("adminCreds[]: " + Arrays.toString(adminCreds));
 
         Scanner scannerObj = new Scanner(System.in);
         String username = "";
@@ -54,10 +55,20 @@ public class Main {
             password = scannerObj.nextLine();
             if (username.equals(adminCreds[0]) && password.equals(adminCreds[1])) {
                 System.out.println("\nSUCCESS:\n\tLogged in as administrator.");
+                System.out.println("-----------------------------------");
                 loggedIn = true;
+                adminController();
             } else {
                 System.out.println("ERROR: invalid credentials. Please try again.");
             }
         }
+    }
+
+    public static void adminController() {
+        Admin adminObj = new Admin("John", "Doe", "root_admin", "johndoe@email.com", "admin_root_739", 3);
+        adminObj.dm.createNewUser("John", "Doe", "root_admin", "johndoe@email.com", "admin_root_739", 3);
+        adminObj.dm.createNewUser("Mary", "Smith", "maryS194", "marysmith@email.com", "mary.smith98", 2);
+        adminObj.dm.printCurrentUsers();
+
     }
 }

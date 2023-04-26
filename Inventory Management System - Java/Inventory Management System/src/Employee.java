@@ -8,4 +8,7 @@ public class Employee extends User {
         - Add products
         - Remove products
      */
+    public Employee(String firstName, String lastName, String username, String email, String password, int userType) {
+        super(firstName, lastName, username, email, password, userType);
+    }
 }
