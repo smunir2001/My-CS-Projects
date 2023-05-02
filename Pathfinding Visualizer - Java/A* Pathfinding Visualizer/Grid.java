@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 public class Grid {
     private final Node[][] nodes;
 
