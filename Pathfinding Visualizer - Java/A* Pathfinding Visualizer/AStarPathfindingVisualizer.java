@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -14,4 +15,11 @@ public class AStarPathfindingVisualizer extends JFrame {
     private JLabel[][] labels = new JLabel[ROWS][COLS];
     private Node startNode;
     private Node endNode;
+
+    public AStarPathfindingVisualizer() {
+        setTitle("A* Pathfinding Visualizer");
+        setSize(800, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+    }
 }
