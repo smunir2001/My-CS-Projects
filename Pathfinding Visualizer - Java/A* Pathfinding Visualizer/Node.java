@@ -1,3 +1,6 @@
+import java.awt.List;
+import java.util.ArrayList;
+
 public class Node {
     private int row;
     private int col;
@@ -5,6 +8,7 @@ public class Node {
     private int gScore;
     private int hScore;
     private boolean isObstacle;
+    private Node parent;
 
     public Node(int row, int col) {
         this.row = row;
@@ -64,5 +68,28 @@ public class Node {
     @Override
     public String toString() {
         return "Node{row = " + row + ", col = " + col + "}";
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public List<Node> getNeighbors(List<Node> nodes) {
+        List<Node> neighbors = new ArrayList<>();
+        for (Node node : nodes) {
+            if (node == this) {
+                continue;
+            }
+            int dx = Math.abs(row - node.getRow());
+            int dy = Math.abs(col - node.getCol());
+            if (dx <= 1 && dy <= 1) {
+                neighbors.add(node);
+            }
+        }
+        return neighbors;
     }
 }
