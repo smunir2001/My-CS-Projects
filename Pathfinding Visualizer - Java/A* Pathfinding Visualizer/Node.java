@@ -60,4 +60,9 @@ public class Node {
         int dy = Math.abs(this.col - other.getCol());
         return dx + dy;
     }
+
+    @Override
+    public String toString() {
+        return "Node{row = " + row + ", col = " + col + "}";
+    }
 }
