@@ -106,3 +106,10 @@ def make_grid(rows, width):
             spot = Spot(i, j, gap, rows)
             grid[i].append(spot)
     return grid
+
+def draw_grid(win, rows, width):
+    gap = width // rows
+    for i in range(rows):
+        pygame.draw.line(win, GRAY, (0, i * gap), (width, i * gap))
+        for j in range(rows):
+            pygame.draw.line(win, GRAY, (j * gap, 0), (j * gap, width))
