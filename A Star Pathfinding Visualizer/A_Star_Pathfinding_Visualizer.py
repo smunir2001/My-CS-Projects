@@ -2,6 +2,7 @@ from ast import Lambda, Or
 from operator import ne
 from sysconfig import get_python_version
 import pygame
+import math
 from queue import PriorityQueue
 
 WIDTH = 800
@@ -75,7 +76,7 @@ class Spot:
     def update_neighbors(self, grid):
         self.neighbors = []
         if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # down
-            self.neighbors.append(grid[self.row + 1][self.co])
+            self.neighbors.append(grid[self.row + 1][self.col])
         if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # up
             self.neighbors.append(grid[self.row - 1][self.col])
         if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier(): # right
@@ -159,7 +160,7 @@ def algorithm(draw, grid, start, end):
                     count += 1
                     open_set.put((f_score[neighbor], count, neighbor))
                     open_set_hash.add(neighbor)
-                    neighbor.make_open()
+                    neighbor.make_opened()
         draw()
         if current != start:
             current.make_closed()
@@ -211,3 +212,5 @@ def main(win, width):
                     end = None
                     grid = make_grid(ROWS, width)
     pygame.quit()
+
+main(WIN, WIDTH)
