@@ -113,3 +113,11 @@ def draw_grid(win, rows, width):
         pygame.draw.line(win, GRAY, (0, i * gap), (width, i * gap))
         for j in range(rows):
             pygame.draw.line(win, GRAY, (j * gap, 0), (j * gap, width))
+
+def draw(win, grid, rows, width):
+    win.fill(WHITE)
+    for row in grid:
+        for spot in row:
+            spot.draw(win)
+    draw_grid(win, rows, width)
+    pygame.display.update()
