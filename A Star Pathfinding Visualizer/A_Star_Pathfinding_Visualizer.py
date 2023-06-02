@@ -68,3 +68,20 @@ class Spot:
 
     def make_path(self):
         self.color = PURPLE
+    
+    def draw(self, win):
+        pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
+
+    def update_neighbors(self, grid):
+        self.neighbors = []
+        if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # down
+            self.neighbors.append(grid[self.row + 1][self.co])
+        if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # up
+            self.neighbors.append(grid[self.row - 1][self.col])
+        if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier(): # right
+            self.neighbors.append(grid[self.row][self.col + 1])
+        if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # left
+            self.neighbors.append(grid[self.row][self.col - 1])
+    
+    def __lt__(self, other):
+        return False
